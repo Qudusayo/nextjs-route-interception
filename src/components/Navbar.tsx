@@ -1,8 +1,11 @@
+"use client";
+
 import { Avatar, Box, Button, Container, Typography } from "@mui/joy";
 import Badge from "@mui/joy/Badge";
 import React, { useState } from "react";
 import Image from "next/image";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Link from "./Link";
 
 export default function Navbar() {
   return (
@@ -15,7 +18,9 @@ export default function Navbar() {
         }}
       >
         <Box component={"div"} sx={{ display: "block" }}>
-          <Image src="/logo.svg" alt="logo" width={80} height={20} />
+          <Link href="/">
+            <Image src="/logo.svg" alt="logo" width={80} height={20} />
+          </Link>
         </Box>
         <Box
           sx={{
@@ -24,7 +29,7 @@ export default function Navbar() {
           }}
         >
           <Typography level="body1">Blog</Typography>
-          <Typography level="body1">Contact Us</Typography>
+          <Link href="/contact-us">Contact Us</Link>
         </Box>
         <Box
           sx={{
@@ -36,7 +41,8 @@ export default function Navbar() {
           <Badge badgeContent={4} color="primary">
             <ShoppingCartIcon sx={{ fontSize: "1.5em" }} color="action" />
           </Badge>
-          <Avatar sx={{ width: 35, height: 35 }} />
+          {/* <Avatar sx={{ width: 35, height: 35 }} /> */}
+          <Link href="/login">Login</Link>
         </Box>
       </Box>
     </Container>

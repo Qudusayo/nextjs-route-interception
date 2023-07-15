@@ -7,7 +7,7 @@ import FormHelperText from "@mui/joy/FormHelperText";
 import { Box, Divider, Typography } from "@mui/joy";
 import { Container } from "@mui/joy";
 
-export default function Subscribe() {
+export default function Subscribe({ divider = true }: { divider?: boolean }) {
   const [data, setData] = React.useState<{
     email: string;
     status: "initial" | "loading" | "failure" | "sent";
@@ -90,7 +90,7 @@ export default function Subscribe() {
           )}
         </FormControl>
       </form>
-      <Divider sx={{ my: 4 }} />
+      {divider && <Divider sx={{ my: 4 }} />}
     </Container>
   );
 }

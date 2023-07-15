@@ -7,42 +7,6 @@ import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import React from "react";
 
-// This implementation is from emotion-js
-// https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
-
-const themed = {
-  colorSchemes: {
-    light: {
-      palette: {
-        primary: {
-          main: "#ff0000",
-          dark: "rgba(0, 117, 255, 0.8)",
-          light: "rgba(0, 117, 255, 0.7)",
-        },
-        secondary: {
-          main: "#F2B705",
-          dark: "rgba(242, 183, 5, 0.8)",
-          light: "rgba(242, 183, 5, 0.7)",
-        },
-        error: {
-          main: "rgba(218, 16, 11, 1)",
-        },
-        warning: {
-          main: "#F4B740",
-        },
-        success: {
-          main: "#1F8B24",
-        },
-      },
-    },
-  },
-  typography: {
-    fontFamily: "Poppins, sans-serif",
-  },
-};
-
-const theme = extendTheme({});
-
 export default function ThemeRegistry(
   props: React.PropsWithChildren<{
     options: Parameters<typeof createCache>[0];
@@ -92,7 +56,7 @@ export default function ThemeRegistry(
 
   return (
     <CacheProvider value={cache}>
-      <CssVarsProvider theme={theme}>
+      <CssVarsProvider>
         <CssBaseline />
         {children}
       </CssVarsProvider>
